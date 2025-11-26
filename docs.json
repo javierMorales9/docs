@@ -24,7 +24,7 @@
           {
             "group": "Campañas",
             "pages": [
-              "campaigns/index.mdx",
+              "campaigns/index",
               "campaigns/one-time",
               "campaigns/automated",
               "campaigns/single",
