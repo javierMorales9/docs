@@ -14,11 +14,11 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Introducción",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "product",
+              "creditos_y_facturación"
             ]
           },
           {
