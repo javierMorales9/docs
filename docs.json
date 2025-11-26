@@ -4,14 +4,14 @@
   "name": "Docs Manuscritten",
   "colors": {
     "primary": "#6e120d",
-    "light": "#ffe3e3",
+    "light": "#fff0f0",
     "dark": "#540b07"
   },
   "favicon": "/favicon.png",
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Guías",
         "groups": [
           {
             "group": "Introducción",
