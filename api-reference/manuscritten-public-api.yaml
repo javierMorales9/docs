@@ -1,0 +1,544 @@
+openapi: 3.0.3
+info:
+  title: Manuscritten Public API
+  version: "1.0.0"
+  description: |
+    API pública de **Manuscritten** para crear cartas manuscritas y consultar
+    recursos auxiliares (campañas automáticas, diseños, remitentes y firmas).
+    
+
+
+    **Notas clave**:
+    - Autenticación mediante **API Key** en la cabecera `X-API-KEY`.
+    - Los endpoints de creación **validan y normalizan** la dirección postal, y **cobran créditos** automáticamente.
+    - Coste orientativo: **3 créditos** (España) y **5 créditos** (internacional).
+servers:
+  - url: https://app.manuscritten.com/api/public
+    description: Producción
+tags:
+  - name: Info
+    description: Endpoints de consulta de recursos de la cuenta
+  - name: Create
+    description: Endpoints para crear cartas (campañas automáticas o individuales)
+security:
+  - ApiKeyAuth: []
+paths:
+  /campaigns:
+    get:
+      tags: [Info]
+      summary: Listar campañas automáticas activas
+      description: Devuelve campañas automáticas activas e información de sus variables personalizables.
+      operationId: listCampaigns
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  campaigns:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Campaign'
+              examples:
+                ejemplo:
+                  value:
+                    campaigns:
+                      - id: 7f127892-71ab-45a6-9145-3565848b55ab
+                        name: Bienvenida nuevos clientes
+                        variables:
+                          - name: Canal Previo
+                            maxSize: 40
+                            defaultValue: null
+                            example: LinkedIn
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /card-designs:
+    get:
+      tags: [Info]
+      summary: Listar diseños de carta
+      operationId: listCardDesigns
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DesignItem'
+              examples:
+                ejemplo:
+                  value:
+                    data:
+                      - id: c83a2a1a-12c3-4de5-92f7-cc40327b9912
+                        name: A5 clásico
+                      - id: e6b41b91-8a1f-44af-86d9-73ebc66d9b6c
+                        name: A4 completo
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /envelope-designs:
+    get:
+      tags: [Info]
+      summary: Listar diseños de sobre
+      operationId: listEnvelopeDesigns
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DesignItem'
+              examples:
+                ejemplo:
+                  value:
+                    data:
+                      - id: 1f86a2b9-6b7a-42c5-bb77-7c51a5edfe91
+                        name: Sobre C5 estándar
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /senders:
+    get:
+      tags: [Info]
+      summary: Listar remitentes
+      operationId: listSenders
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DesignItem'
+              examples:
+                ejemplo:
+                  value:
+                    data:
+                      - id: a8c9b331-0f1a-4f32-9e75-d4a24ce3b129
+                        name: Oficina Central
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /signatures:
+    get:
+      tags: [Info]
+      summary: Listar firmas
+      operationId: listSignatures
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/DesignItem'
+              examples:
+                ejemplo:
+                  value:
+                    data:
+                      - id: d32e8929-292a-4ed7-baf1-1e8f74b77542
+                        name: Firma Javier M.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /company-data:
+    get:
+      tags: [Info]
+      summary: Obtener datos de la compañía
+      description: Devuelve cardDesigns, envelopeDesigns, senders y signatures.
+      operationId: getCompanyData
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/CompanyData'
+              examples:
+                ejemplo:
+                  value:
+                    data:
+                      cardDesigns:
+                        - id: a1
+                          name: A5 Clásico
+                      envelopeDesigns:
+                        - id: b1
+                          name: C5 Blanco
+                      senders:
+                        - id: c1
+                          name: Oficina Madrid
+                      signatures:
+                        - id: d1
+                          name: Firma CEO
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /card:
+    post:
+      tags: [Create]
+      summary: Crear carta para campaña automática
+      description: |
+        Crea una carta dentro de una campaña automática activa.
+        
+
+**Comportamiento**:
+        - Valida y normaliza la dirección postal.
+        - Cobra automáticamente los créditos (3 España, 5 internacional).
+        - Inserta la carta en la campaña indicada y la deja lista para producción.
+      operationId: createCampaignCard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateCardRequest'
+            examples:
+              ejemplo:
+                value:
+                  campaignId: 7f127892-71ab-45a6-9145-3565848b55ab
+                  name: Alfredo
+                  surname: Villacastín
+                  address: "C. de José María Lacarra de Miguel, 250"
+                  zip: "50008"
+                  city: Zaragoza
+                  province: ""
+                  country: ES
+                  variables:
+                    Canal Previo: el Tech Show
+      responses:
+        '200':
+          description: Creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+              examples:
+                ejemplo:
+                  value:
+                    success: true
+                    cardId: c92a7c5e-13bd-4b3c-b2de-dc80475c0f3a
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/PaymentRequired'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+  /single:
+    post:
+      tags: [Create]
+      summary: Crear carta individual (single)
+      description: |
+        Crea una carta única no asociada a campaña.
+        
+
+**Comportamiento**:
+        - Verifica y normaliza la dirección postal.
+        - Cobra automáticamente los créditos.
+        - Deja la carta lista para impresión con los diseños indicados.
+      operationId: createSingleCard
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateSingleRequest'
+            examples:
+              ejemplo:
+                value:
+                  cardDesignId: c83a2a1a-12c3-4de5-92f7-cc40327b9912
+                  envelopeDesignId: 1f86a2b9-6b7a-42c5-bb77-7c51a5edfe91
+                  senderId: a8c9b331-0f1a-4f32-9e75-d4a24ce3b129
+                  fontName: PremiumUltra23
+                  message: "Hola Alfredo, gracias por venir al evento."
+                  name: Alfredo
+                  surname: Villacastín
+                  company: TechShow
+                  address: "C. de José María Lacarra de Miguel, 250"
+                  zip: "50008"
+                  city: Zaragoza
+                  province: ""
+                  country: ES
+      responses:
+        '200':
+          description: Creada
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CreateResponse'
+              examples:
+                ejemplo:
+                  value:
+                    success: true
+                    cardId: f64e3bc1-72e9-4c0a-9dc7-34db5e9b45ad
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '402':
+          $ref: '#/components/responses/PaymentRequired'
+        '429':
+          $ref: '#/components/responses/RateLimit'
+        '500':
+          $ref: '#/components/responses/ServerError'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-KEY
+      description: API Key de Manuscritten.
+  responses:
+    BadRequest:
+      description: Petición inválida (validación, campos obligatorios, formatos).
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            ejemplo:
+              value:
+                error: Bad Request
+                message: Campo "address" es obligatorio
+    Unauthorized:
+      description: Falta o es inválida la API Key.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            ejemplo:
+              value:
+                error: Unauthorized
+                message: API key inválida o ausente
+    PaymentRequired:
+      description: Créditos insuficientes para crear la carta.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            ejemplo:
+              value:
+                error: Payment Required
+                message: Créditos insuficientes
+    RateLimit:
+      description: Límite de peticiones excedido.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            ejemplo:
+              value:
+                error: Too Many Requests
+                message: Has superado el límite de peticiones
+    ServerError:
+      description: Error interno del servidor.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          examples:
+            ejemplo:
+              value:
+                error: Internal Server Error
+                message: Ha ocurrido un error inesperado
+  schemas:
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        variables:
+          type: array
+          items:
+            $ref: '#/components/schemas/CampaignVariable'
+      required: [id, name, variables]
+    CampaignVariable:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Nombre exacto de la variable en la campaña
+        maxSize:
+          type: integer
+          minimum: 0
+        defaultValue:
+          type: string
+          nullable: true
+        example:
+          type: string
+          nullable: true
+      required: [name, maxSize]
+    DesignItem:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+      required: [id, name]
+    CompanyData:
+      type: object
+      properties:
+        cardDesigns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignItem'
+        envelopeDesigns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignItem'
+        senders:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignItem'
+        signatures:
+          type: array
+          items:
+            $ref: '#/components/schemas/DesignItem'
+      required: [cardDesigns, envelopeDesigns, senders, signatures]
+    CreateCardRequest:
+      type: object
+      properties:
+        campaignId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        surname:
+          type: string
+        address:
+          type: string
+        zip:
+          type: string
+        city:
+          type: string
+        province:
+          type: string
+          nullable: true
+        country:
+          type: string
+          description: Código ISO 3166-1 alfa-2 (ej. ES, FR, US)
+          minLength: 2
+          maxLength: 2
+        variables:
+          type: object
+          additionalProperties:
+            type: string
+      required: [campaignId, name, surname, address, zip, city, country]
+    CreateSingleRequest:
+      type: object
+      properties:
+        cardDesignId:
+          type: string
+          format: uuid
+        envelopeDesignId:
+          type: string
+          format: uuid
+        senderId:
+          type: string
+          format: uuid
+        fontName:
+          type: string
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        name:
+          type: string
+        surname:
+          type: string
+        company:
+          type: string
+          nullable: true
+        address:
+          type: string
+        zip:
+          type: string
+        city:
+          type: string
+        province:
+          type: string
+          nullable: true
+        country:
+          type: string
+          description: Código ISO 3166-1 alfa-2 (ej. ES, FR, US)
+          minLength: 2
+          maxLength: 2
+      required:
+        - cardDesignId
+        - envelopeDesignId
+        - senderId
+        - name
+        - surname
+        - address
+        - zip
+        - city
+        - country
+    CreateResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        cardId:
+          type: string
+          format: uuid
+      required: [success, cardId]
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+      required: [error, message]

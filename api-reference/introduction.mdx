@@ -1,22 +1,31 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "API"
+description: "Uso de la API pública de Manuscritten"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+La **API pública de Manuscritten** permite crear cartas de forma programática, tanto dentro de [**campañas automáticas existentes**](/campaigns/automated) como [**cartas individuales**](/campaigns/single).
+
+Está diseñada para facilitar la integración con CRMs, sistemas internos o flujos personalizados que requieran enviar cartas manuscritas sin intervención manual.
+
+## Autenticación
+
+Toda petición a la API debe incluir una cabecera de autenticación con la **API Key de tu cuenta**:
+
+```
+X-API-KEY: <tu_api_key>
+```
+
+La API Key puede obtenerse desde la sección de ajustes de la cuenta:
+
+👉 https://app.manuscritten.com/settings
+
+Sin una clave válida, todas las peticiones devolverán un error `401 Unauthorized`.
 
 ## Welcome
 
 There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
+<Card title="Plant Store Endpoints" icon="leaf" href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json">
   View the OpenAPI specification file
 </Card>
 
