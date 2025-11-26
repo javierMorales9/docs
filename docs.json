@@ -39,6 +39,14 @@
               "customization/signatures",
               "customization/senders"
             ]
+          },
+          {
+            "group": "Integraciones",
+            "pages": [
+              "integrations/index",
+              "integrations/hubspot",
+              "integrations/zapier"
+            ]
           }
         ]
       },
