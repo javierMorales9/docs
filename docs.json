@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Manuscritten - Docs",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#6e120d",
+    "light": "#ffe3e3",
+    "dark": "#540b07"
   },
   "favicon": "/favicon.png",
   "navigation": {
@@ -22,27 +22,22 @@
             ]
           },
           {
-            "group": "Customization",
+            "group": "Campañas",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "campaigns/index.mdx",
+              "campaigns/one-time",
+              "campaigns/automated",
+              "campaigns/single",
+              "campaigns/message",
+              "campaigns/envelope"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Personalización",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "customization/designs",
+              "customization/signatures",
+              "customization/senders"
             ]
           }
         ]
@@ -71,33 +66,33 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
+          "anchor": "Web",
+          "href": "https://www.manuscritten.com",
+          "icon": "newspaper"
         },
         {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "anchor": "App",
+          "href": "https://app.manuscritten.com",
+          "icon": "web"
         }
       ]
     }
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/Logo.png",
+    "dark": "/logo/Logo.pngg"
   },
   "navbar": {
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:soporte@manuscritten.com"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "App",
+      "href": "https://app.manuscritten.com"
     }
   },
   "contextual": {
@@ -114,9 +109,7 @@
   },
   "footer": {
     "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
+      "linkedin": "https://www.linkedin.com/company/manuscritten/"
     }
   }
 }
