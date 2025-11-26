@@ -1,4 +1,47 @@
 ---
 title: "Campañas"
-description: "Description of your new file."
+description: "En Manuscritten, la forma en la que se envían cartas es a través de campañas. Cada campaña contiene un conjunto de destinatarios así como el contenido de la carta y el sobre que se le enviará dichos destinatarios."
 ---
+
+Una vez en la aplicación, si se acude a la vista de campañas, se podrán ver las campañas ya existentes así como crear nuevas.
+
+![Campaign View Pn](/images/campaign_view.png)
+
+Cada campaña consta de tres partes:
+
+1. Los destinatarios: Determinar a quien va dirigida la carta.
+2. La configuración del sobre: Elección del [diseño del sobre](/customization/designs) y del [remitente](/customization/senders).
+3. La configuración de la carta: Este incluye la elección del [diseño de la carta](/customization/designs) y la configuración del mensaje, el qr y la firma.
+
+Estos tres elementos, destinatarios, mensaje y sobre se pueden ver como seleccionables en el editor de la campaña
+
+![Campaign Editor Pn](/images/campaign_editor.png)
+
+## Tipos de campaña
+
+Respecto a los destinatarios, existen tres formas de hacer llegar un destinatario a una campaña. En función de este hecho distinguimos tres tipos de campañas.
+
+<Card title="Campañas individuales" icon="scissors" href="/campaigns/single">
+  El primera tipo es la campaña individual. Esta consiste en enviar una sola carta a un destinatario. Es una forma de enviar una carta personalizada, puntual, con un mensaje personalizado. Se pueden crear tanto manualmente a través de la app como automáticamente a través de la API.
+</Card>
+
+<Card title="Campañas puntuales" icon="box-archive" href="/campaigns/one-time">
+  Estas campañas, en lugar de mandar una carta a un destinatario individual, sirven para mandar cartas a una lista de clientes. Se pueden crear subiendo un csv con la lista en la aplicación. Estas campañas comparten una misma configuración (mensaje, sobre, etc.) para todos los destinatarios.
+</Card>
+
+<Card title="Campañas automáticas" icon="bolt-lightning" href="/campaings/automated">
+  Estas campañas, al igual que las puntuales comparten una misma configuración para todos sus destinatarios. Pero en lugar de recibir los destinatarios a través de un csv subido manualmente, se reciben a través de la API (o de alguna integración como Zapier o Hubspot).
+</Card>
+
+## Edición del contenido
+
+La edición del sobre y del mensaje se trata en estos dos artículos.
+
+<Columns cols={2}>
+  <Card title="Edición del sobre" icon="envelope" href="/campaigns/envelope">
+    Edita el remitente de la campaña y previsualiza como quedaría el sobre para un destinatario concreto
+  </Card>
+  <Card title="Edición del mensaje" icon="newspaper" href="/campaigns/message">
+    Configura el texto de la carta, incluye QRs y firmas y previsualiza como quedaría la carta.
+  </Card>
+</Columns>
