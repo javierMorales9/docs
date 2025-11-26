@@ -1,4 +1,83 @@
 ---
 title: "HubSpot"
-description: "Description of your new file."
+description: "Manuscritten cuenta con una integración directa con HubSpot que permite añadir nuevas cartas a Manuscritten desde la propia vista de contacto de HubSpot. En esta página se describe como integrar Manuscritten dentro de tu propia cuenta de HubSpot y como crear cartas desde ella."
 ---
+
+## Integrar Hubspot con Manuscritten
+
+El primer paso para integrar tu cuenta de Hubspot con Manuscritten es acudir a la [página de integraciones](http://app.manuscritten.com/settings/integrations).
+
+Una vez allí se mostrará que la cuenta no tiene todavía una integración con Hubspot y un botón, **Conectar cuenta**, que inicia el flujo de integración.
+
+![Hubspot Settings Pn](/images/hubspot-settings.png)
+
+Si se pincha en dicho botón, se redirigirá a tu cuenta de Hubspot. Si tienes varias entonces se te pedirá que escojas una de ellas. Cuando la escojas se te pedirá una última confirmación antes de llevar a cabo definitivamente la integración.
+
+![Hubspot Oauth Select Account Pn](/images/hubspot-oauth-select-account.png)
+
+![Hubspot Oauth Confirm Pn](/images/hubspot-oauth-confirm.png)
+
+Finalmente se redirigirá de vuelta a Manuscritten donde aparecerá que Hubspot se ha conectado satisfactoriamente.
+
+![Hubspot Oauth Install Sucess Pn](/images/hubspot-oauth-install-sucess.png)
+
+## Añadir carta a campaña automática
+
+La integración de Manuscritten ofrecer un tarjeta de aplicación que se puede añadir al panel lateral derecho de la vista de contacto para poder añadirle a una campaña existente o mandarle una carta individualizada.
+
+Para añadir esta carta, basta con pinchar **Personalizar** y luego en la vista que se desee personalizar. En nuestro ejemplo, en Vista predeterminada
+
+![Hubspot Personalize Contact View Pn](/images/hubspot-personalize-contact-view.png)
+
+![Hubspot Edit Default View Pn](/images/hubspot-edit-default-view.png)
+
+Luego, en el panel derecho se pincha en Agregar Tarjeta y se escoge, en la Biblioteca de tarjetas, la tarjeta llamada **Create card for Contact.**
+
+![Hubspot Add Card 1 Pn](/images/hubspot-add-card-1.png)
+
+![Hubspot Select Card Pn](/images/hubspot-select-card.png)
+
+Con esto, si se vuelve a la vista de contact debería aparecer la tarjeta seleccionada en el panel lateral. Esta tarjeta ofrece dos posibilidades:
+
+1. Añadir carta a Campaña
+2. Crear una carta individual.
+
+![Hubspot Card View Pn](/images/hubspot-card-view.png)
+
+## Añadir carta a campaña automática
+
+Para crear con una carta para este contacto en una campaña basta con seleccionar la campaña de interés y pinchar en **Crear carta**. Tras ello aparecerá un modal donde se permitirá introducir la dirección de contacto del destinatario.
+
+Los valores que aparecen por defecto en este formulario serán los que extraídos de la propia información del contacto de Hubspot. Para más información [léase este artículo](https://knowledge.hubspot.com/properties/hubspots-default-contact-properties).
+
+También se ofrece la posibilidad de introducir valores para las [variables de la campaña](/campaigns/message).
+
+![Hubspot Card For Campaign Pn](/images/hubspot-card-for-campaign.png)
+
+Cuando se pincha en **Crear carta**, la información de la nueva carta se envía a Manuscritten y se añade a la campaña seleccionada.
+
+![Hubspot Card For Campaign Sucess Pn](/images/hubspot-card-for-campaign-sucess.png)
+
+## Crear carta individual para contacto
+
+Si lo que se quiere es mandar una carta con un contenido específico para este contacto, entonces se tendrá que crear una [**carta individual**](/campaigns/single).
+
+![Hubspot Single View Pn](/images/hubspot-single-view.png)
+
+El proceso de creación es similar al que hay que seguir en la propia aplicación de Manuscritten. Primero se escoge el remitente que se quiera añadir a la carta; y se especifica cual va a ser la dirección del destinatario. Los valores por defecto, igual que en el caso anterior, se extraen de la información del propio contacto.
+
+![Hubspot New Single Address Pn](/images/hubspot-new-single-address.png)
+
+Luego habrá que escoger el [diseño de carta y sobre](/customization/designs).
+
+![Hubspot New Single Design Pn](/images/hubspot-new-single-design.png)
+
+Finalmente se deberá introducir el propio mensaje que tendrá la carta y, si se quiere, la firma que deberá añadirse.
+
+![Hubspot New Single Message Pn](/images/hubspot-new-single-message.png)
+
+Finalmente, cuando se pinche en **Submit** la carta individual se añadirá a Manuscritten.
+
+![Hubspot New Single Success Pn](/images/hubspot-new-single-success-.png)
+
+![Hubspot New Single In Manus Pn](/images/hubspot-new-single-in-manus.png)

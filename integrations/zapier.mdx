@@ -1,4 +1,40 @@
 ---
 title: "Zapier"
-description: "Description of your new file."
+description: "Manuscritten cuenta con una integración directa con Zapier que permite añadir nuevas cartas a Manuscritten desde las más de 7.000 aplicación conectadas directamente a Zapier. En este artículo vamos a ver como realizar la integración con Zapier y como crear cartas en Manuscritten."
 ---
+
+## Integración de Manuscritten con Zapier
+
+Actualmente, la integración nativa de Manuscritten en Zapier está en estado de revisión y se requiere invitación para poder tener acceso a la misma. Por tanto, lo primero que debe hacerse es acceder a la siguiente url:
+
+https://zapier.com/developer/public-invite/207542/349690c2c0a5df25756f42fb19ac432d/
+
+Una vez se ha accedido a esta url con la cuenta desde la que se quieren crear los Zaps, Manuscritten debería aparecer como acción
+
+![Zapier Select Manus Action Pn](/images/zapier-select-manus-action.png)
+
+Una vez seleccionada la integración, el siguiente paso es hacer log in con la cuenta de Manuscritten en la que se quieren crear las cartas. En este caso, al integración de Manuscritten funciona por medio de una api key, que deberá introducirse en el cajetín que se aparecerá cuando se pinche en **Log in**.
+
+Esta API key identifica a cada cuenta de Manuscritten y permite un acceso seguro a la misma. No la compartas públicamente. Se puede encontrar en la [página de settings](https://app.manuscritten.com/settings).
+
+![Zapier Input Api Key Pn](/images/zapier-input-api-key.png)
+
+![Zapier Connected Pn](/images/zapier-connected.png)
+
+## Crear carta para campaña automática
+
+Actualmente Manuscritten permite una sola acción: **Add card to campaign**. Esta acción permite añadir cartas a [campañas automáticas](https://www.notion.so/Campa-as-autom-ticas-2793d903c36d8067a7b7e171d084a163?pvs=21) que estén **activadas**. Esto es importante, si la campaña esta en estado **Inactiva** la integración de Zapier no permitirá crear una carta para ella.
+
+Para llevar a cabo esta acción es necesario seleccionar primero a que campaña queremos añadir la carta. Y luego, habrá que rellenar los datos de la dirección del destinatario: Nombre, Apellidos, Empresa, Dirección, Código Postal, Ciudad, Provincia y País.
+
+Estos valores podrán sacarse pasos anteriores en el mismo Zap. Por ejemplo, en el ejemplo de abajo extraemos la información de un paso previo en Google Sheets.
+
+![Zapier Configure Pn](/images/zapier-configure.png)
+
+Una vez configurado de donde se sacan los datos para cada uno de los campos se puede hacer una prueba final para comprobar que el proceso de añadir una carta funciona correctamente.
+
+![Zapier Test Success Pn](/images/zapier-test-success.png)
+
+Y se puede ver como la carta llega también correctamente a Manuscritten.
+
+![Zapier Card In Manus Pn](/images/zapier-card-in-manus.png)

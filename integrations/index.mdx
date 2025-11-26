@@ -1,4 +1,42 @@
 ---
 title: "Integraciones"
-description: "Description of your new file."
+description: "Las integraciones de Manuscritten permiten conectar la plataforma con otras herramientas o sistemas externos para crear cartas manuscritas de forma totalmente automatizada, sin necesidad de subir archivos ni intervenir manualmente."
 ---
+
+Su objetivo es ofrecer a las empresas **formas sencillas de introducir cartas en Manuscritten desde las herramientas que ya utilizan**, como su CRM, una hoja de cálculo, o una automatización de marketing.
+
+## Qué permiten hacer las integraciones
+
+Las integraciones pueden utilizarse de dos formas:
+
+1. **Añadir cartas a **[**campañas automáticas**](/campaigns/automated)** existentes:** Cuando una empresa tiene una campaña activa en Manuscritten (por ejemplo, “Bienvenida de nuevos clientes”), una integración puede enviarle cartas nuevas cada vez que ocurre un evento en la herramienta externa: un nuevo contacto en HubSpot, un registro en una web, una compra, etc.
+2. **Crear cartas individuales:** También es posible crear [**cartas individuales**](/campaigns/single), dirigidas a un solo destinatario y con su propio mensaje personalizado.
+
+   Estas cartas no pertenecen a ninguna campaña y son perfectas para acciones puntuales, agradecimientos o comunicaciones personalizadas.
+
+En ambos casos, el proceso de producción es el mismo: Manuscritten valida la dirección, calcula los créditos, genera el diseño manuscrito y envía la carta a impresión.
+
+## Tipos de integraciones disponibles
+
+Actualmente Manuscritten ofrece tres formas principales de integración:
+
+<Card title="API directa" icon="globe" href="/">
+  La opción más flexible y potente. Permite a desarrolladores o sistemas internos comunicarse con Manuscritten mediante peticiones HTTP autenticadas para crear cartas (individuales o de campaña) desde cualquier entorno.
+</Card>
+
+<Card title="Hubspot" icon="hubspot" href="/integrations/hubspot">
+  Integración nativa con HubSpot CRM. Permite crear cartas desde workflows, fichas de contacto o desencadenadores automáticos (por ejemplo, “cuando un lead pasa a cliente”). Ideal para equipos de marketing o ventas.
+</Card>
+
+<Card title="Zapier" icon="/images/zapier_1.webp" href="/integrations/zapier">
+  Integración sin código, perfecta para quienes usan herramientas como Google Sheets, Airtable o Pipedrive. Permite crear cartas desde más de 1.000 aplicaciones sin necesidad de programar nada.
+</Card>
+
+## Funcionamiento general
+
+Independientemente del tipo de integración, todas siguen el mismo flujo:
+
+1. Un sistema externo **envía una solicitud** a Manuscritten con los datos del destinatario y el contenido de la carta.
+2. Manuscritten **valida la dirección y calcula el coste** en créditos.
+3. La carta se **guarda en nuestra infraestructura** (dentro de la campaña o como carta individual).
+4. Cuando la campaña entra en progreso o la carta individual se aprueba, se **manda la orden al robot**, se **ensobra **y se **envía**.
