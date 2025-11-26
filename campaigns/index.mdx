@@ -3,6 +3,8 @@ title: "Campañas"
 description: "En Manuscritten, la forma en la que se envían cartas es a través de campañas. Cada campaña contiene un conjunto de destinatarios así como el contenido de la carta y el sobre que se le enviará dichos destinatarios."
 ---
 
+import EditEnvelopeAndMessage from '/snippets/campaign-envelope-and-message.mdx';
+
 Una vez en la aplicación, si se acude a la vista de campañas, se podrán ver las campañas ya existentes así como crear nuevas.
 
 ![Campaign View Pn](/images/campaign_view.png)
@@ -37,11 +39,4 @@ Respecto a los destinatarios, existen tres formas de hacer llegar un destinatari
 
 La edición del sobre y del mensaje se trata en estos dos artículos.
 
-<Columns cols={2}>
-  <Card title="Edición del sobre" icon="envelope" href="/campaigns/envelope">
-    Edita el remitente de la campaña y previsualiza como quedaría el sobre para un destinatario concreto
-  </Card>
-  <Card title="Edición del mensaje" icon="newspaper" href="/campaigns/message">
-    Configura el texto de la carta, incluye QRs y firmas y previsualiza como quedaría la carta.
-  </Card>
-</Columns>
+<EditEnvelopeAndMessage />

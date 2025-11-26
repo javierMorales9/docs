@@ -1,4 +1,67 @@
 ---
 title: "Campañas puntuales"
-description: "Description of your new file."
+description: "Las campañas puntuales permiten enviar cartas en lote a partir de un archivo CSV con destinatarios. Este flujo es ideal para acciones de bienvenida, relanzamientos, promociones estacionales o comunicados a grupos concretos en momentos concretos"
 ---
+
+El proceso de creación de una campaña es el siguiente: subida del CSV, mapeo de columnas, configuración de mensaje y sobre, validación de direcciones y activación.
+
+## Creación de una campaña puntual
+
+Para crear una campaña puntual partimos de la vista de campañas y pinchamos en el botón de Nueva campaña.
+
+![Campaign View Pn](/images/campaign_view.png)
+
+Apareceré entonces un modal. Lo primero será introducir el nombre que se le quiere dar a la campaña. Luego, se escogerá campaña puntual y finalmente se escogerá el remitente que se quiera añadir a la campaña. Con todo esto hecho se debe pulsar en el botón Siguiente.
+
+![Modal One Time Pn](/images/modal_one_time.png)
+
+En este punto aparecerá una nueva vista donde se escogerá el [diseño de carta y de sobre](/customization/designs). Es importante escogerlos bien porque luego no se podrán modificar.
+
+![Modal Camp Designs Pn](/images/modal_camp_designs.png)
+
+Si se pincha en el botón Crear, la campaña se guardará correctamente y se redirigirá al editor para poder configurar esta nueva campaña. Para añadir la lista de destinatarios en esta campaña basta con pincha en Añadir Destinatarios.
+
+![No Dest One Time Pn](/images/no_dest_one_time.png)
+
+En el modal que aparece debe subirse el archivo CSV con los destinatarios. Para que os sirva de referencia, aquí tenéis un ejemplo del mismo
+
+![Upload Csv Pn](/images/upload_csv.png)
+
+Tras ello hay que hacer la correspondencia con los campos en el CSV con los campos internos de Manuscritten. Por defecto, Manuscritten tiene 8 campos base que serán los que utilicemos para componer la dirección del sobre:
+
+1. Nombre
+2. Apellidos
+3. Empresa _(se refiere a la empresa del destinatario. Es útil cuando trabaja en un complejo de oficinas donde hay múltiples empresas en el mismo edificio)_
+4. Dirección
+5. Código Postal
+6. Localidad
+7. Provincia _(no es obligatorio)_
+8. País _(no es obligatorio)_
+
+![Start Map Csv Pn](/images/start_map_csv.png)
+
+Adicionalmente, se pueden crear Variables Personalizadas, que se podrán luego incluir dentro del mensaje de la carta para personalizar la carta.
+
+![Finish Map Csv Pn](/images/finish_map_csv.png)
+
+Tras esto se muestra como quedarían los destinatarios para poder revisarlos y, cuando se pincha en el botón de Añadir Destinatarios, comenzará su validación.
+
+![Final Map Csv Pn](/images/final_map_csv.png)
+
+El proceso de validación puede tardar unos minutos, dependiendo del volumen de cartas introducidas. Este proceso utiliza el servicio de validación de direcciones de Google para asegurarse de que las direcciones son correctas y de uniformar todos los campos para garantizar las posibilidades de que el envío llegue a su destino.
+
+Una vez finalizado este proceso, los destinatarios se habrán añadido satisfactoriamente a la campaña
+
+![Dest One Time Pn](/images/dest_one_time.png)
+
+En este punto se deberá editar tanto el sobre y el mensaje de la campaña. Este proceso es común para todos los tipos de campañas y se describe en estos dos artículos
+
+## Activación de la campaña puntual
+
+Cuando se crea, la campaña parte por defecto en el estado “Borrador” y por tanto, se considera que todavía no está lista para empezar a trabajarse en ella. Una vez se hayan configurado los destinatarios, el sobre y el mensaje, para notificar al equipo de Manuscritten de que se pueden empezar a crear las cartas hay que activar la campaña. Para ello basta con darle al botón de activar arriba a la derecha.
+
+Hay que tener en cuenta que, una vez activada, no se podrán añadir más destinatarios a la campaña.
+
+## Coste de la campaña
+
+En el momento en el que se suben nuevos destinatarios a una campaña, durante la validación, se calcula directamente el [coste en créditos](https://www.notion.so/Cr-ditos-y-Facturaci-n-2793d903c36d80a8859af2bd30da56a0?pvs=21) de las cartas asociadas. Este coste no se restará de los créditos disponibles en la cuenta hasta que la campaña no se active. Es decir, mientras la campaña está en borrador los créditos disponibles en la cuenta no se verán afectados.
