@@ -17,8 +17,8 @@
             "group": "Introducción",
             "pages": [
               "index",
-              "producto",
-              "creditos_y_facturacion"
+              "producto/producto",
+              "producto/creditos_y_facturacion"
             ]
           },
           {
