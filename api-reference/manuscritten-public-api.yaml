@@ -7,7 +7,6 @@ info:
     recursos auxiliares (campañas automáticas, diseños, remitentes y firmas).
     
 
-
     **Notas clave**:
     - Autenticación mediante **API Key** en la cabecera `X-API-KEY`.
     - Los endpoints de creación **validan y normalizan** la dirección postal, y **cobran créditos** automáticamente.
@@ -25,7 +24,8 @@ security:
 paths:
   /campaigns:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Listar campañas automáticas activas
       description: Devuelve campañas automáticas activas e información de sus variables personalizables.
       operationId: listCampaigns
@@ -60,7 +60,8 @@ paths:
           $ref: '#/components/responses/ServerError'
   /card-designs:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Listar diseños de carta
       operationId: listCardDesigns
       responses:
@@ -91,7 +92,8 @@ paths:
           $ref: '#/components/responses/ServerError'
   /envelope-designs:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Listar diseños de sobre
       operationId: listEnvelopeDesigns
       responses:
@@ -120,7 +122,8 @@ paths:
           $ref: '#/components/responses/ServerError'
   /senders:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Listar remitentes
       operationId: listSenders
       responses:
@@ -149,7 +152,8 @@ paths:
           $ref: '#/components/responses/ServerError'
   /signatures:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Listar firmas
       operationId: listSignatures
       responses:
@@ -178,7 +182,8 @@ paths:
           $ref: '#/components/responses/ServerError'
   /company-data:
     get:
-      tags: [Info]
+      tags:
+        - Info
       summary: Obtener datos de la compañía
       description: Devuelve cardDesigns, envelopeDesigns, senders y signatures.
       operationId: getCompanyData
@@ -216,13 +221,13 @@ paths:
           $ref: '#/components/responses/ServerError'
   /card:
     post:
-      tags: [Create]
+      tags:
+        - Create
       summary: Crear carta para campaña automática
       description: |
         Crea una carta dentro de una campaña automática activa.
         
-
-**Comportamiento**:
+        **Comportamiento**:
         - Valida y normaliza la dirección postal.
         - Cobra automáticamente los créditos (3 España, 5 internacional).
         - Inserta la carta en la campaña indicada y la deja lista para producción.
@@ -270,13 +275,13 @@ paths:
           $ref: '#/components/responses/ServerError'
   /single:
     post:
-      tags: [Create]
+      tags:
+        - Create
       summary: Crear carta individual (single)
       description: |
         Crea una carta única no asociada a campaña.
         
-
-**Comportamiento**:
+        **Comportamiento**:
         - Verifica y normaliza la dirección postal.
         - Cobra automáticamente los créditos.
         - Deja la carta lista para impresión con los diseños indicados.
@@ -401,7 +406,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CampaignVariable'
-      required: [id, name, variables]
+      required:
+        - id
+        - name
+        - variables
     CampaignVariable:
       type: object
       properties:
@@ -417,7 +425,9 @@ components:
         example:
           type: string
           nullable: true
-      required: [name, maxSize]
+      required:
+        - name
+        - maxSize
     DesignItem:
       type: object
       properties:
@@ -426,7 +436,9 @@ components:
           format: uuid
         name:
           type: string
-      required: [id, name]
+      required:
+        - id
+        - name
     CompanyData:
       type: object
       properties:
@@ -446,7 +458,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/DesignItem'
-      required: [cardDesigns, envelopeDesigns, senders, signatures]
+      required:
+        - cardDesigns
+        - envelopeDesigns
+        - senders
+        - signatures
     CreateCardRequest:
       type: object
       properties:
@@ -475,7 +491,14 @@ components:
           type: object
           additionalProperties:
             type: string
-      required: [campaignId, name, surname, address, zip, city, country]
+      required:
+        - campaignId
+        - name
+        - surname
+        - address
+        - zip
+        - city
+        - country
     CreateSingleRequest:
       type: object
       properties:
@@ -533,7 +556,9 @@ components:
         cardId:
           type: string
           format: uuid
-      required: [success, cardId]
+      required:
+        - success
+        - cardId
     Error:
       type: object
       properties:
@@ -541,4 +566,6 @@ components:
           type: string
         message:
           type: string
-      required: [error, message]
+      required:
+        - error
+        - message
