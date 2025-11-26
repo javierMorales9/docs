@@ -61,7 +61,7 @@
           },
           {
             "group": "Endpoints",
-            "openapi": "/integrations/manuscritten-public-api.yaml"
+            "openapi": "/integrations/openapi.json"
           }
         ]
       }
