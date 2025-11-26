@@ -76,19 +76,19 @@
         {
           "anchor": "Web",
           "href": "https://www.manuscritten.com",
-          "icon": "newspaper"
+          "icon": "globe-pointer"
         },
         {
           "anchor": "App",
           "href": "https://app.manuscritten.com",
-          "icon": "web"
+          "icon": "computer-classic"
         }
       ]
     }
   },
   "logo": {
     "light": "/logo/Logo.png",
-    "dark": "/logo/Logo.pngg"
+    "dark": "/logo/Logo.png"
   },
   "navbar": {
     "links": [
