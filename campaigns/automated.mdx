@@ -1,4 +1,50 @@
 ---
 title: "Campañas automáticas"
-description: "Description of your new file."
+description: "Las campañas automáticas crean cartas de forma continua a partir de eventos externos (p. ej., CRM, formularios o tienda) conectados mediante Integraciones (Zapier y Hubspot) o directamente a través de la API. Son adecuadas para onboarding, reactivación, post-compra y nurtures. A diferencia de las campañas puntuales no tienen un final concreto. Mientras que se mantengan activas se pueden seguir recibiendo y enviando cartas indefinidamente."
 ---
+
+import EditEnvelopeAndMessage from '/snippets/campaign-envelope-and-message.mdx';
+
+## Creación de una campaña automática
+
+Para poder crear una campaña automática partimos de la vista de campañas pinchando en el botón de Nueva campaña.
+
+![Campaign View Pn](/images/campaign_view.png)
+
+En el modal saliente en primer lugar se introducirá el nombre deseado para la campaña. Luego, se seleccionará automatizada y finalmente escogeremos el [remitente](/customization/senders) que queremos que tengan todas las cartas de la campaña.
+
+![Modal Automated Pn](/images/modal-automated.png)
+
+Si se pincha en **Siguiente** se permitirá escoger los [diseños de carta y sobre](/customization/designs) que usar para las cartas de la campaña. Tras ello se pincha en el botón de \*\*Crear \*\*para guardar esta nueva campaña.
+
+![Modal Camp Designs Pn](/images/modal_camp_designs.png)
+
+Una vez creada se redirige al editor de la campaña, donde veremos que aparece en estado **No Sincronizada**. Este estado se mantendrá hasta que se reciba la primera carta via API o alguna integración.
+
+<Card title="Integraciones" icon="plug" href="/integrations/index">
+  Manda cartas a una campañas automática a través de una integración
+</Card>
+
+![Waiting For Sync Pn](/images/waiting-for-sync.png)
+
+Una vez recibida, la primera carta, el nuevo destinatario aparecerá en la vista y la campaña aparecerá en estado **Inactiva**. Mientras se mantenga en estado **Inactiva**, el equipo de Manuscritten no trabajará en las cartas que lleguen a la campaña.
+
+![Dest Automated Pn](/images/dest-automated.png)
+
+Una vez en este punto, se podrá editar tanto el sobre y el mensaje de la carta, que funciona igual que en el resto de tipos de campañas. Se ofrece más información en los siguientes enlaces:
+
+<EditEnvelopeAndMessage />
+
+## Coste de las carta de una campaña automática
+
+Las cartas de las campañas automáticas se cobran tal cual llegan. Es decir, de los créditos disponibles en la cuenta se descontará el coste de la carta tal cual llega.
+
+Como además el número de cartas recibidas en una campaña automática no está determinado de antemano, puede darse el caso que llegue un punto que el número de créditos disponibles baje a cero y aun así siguen llegando cartas.
+
+En esos casos, en vez de descartar esas cartas por falta de créditos, la plataforma de Manuscritten las acepta pero las marca como **a deber.**
+
+Estas cartas no se realizarán hasta que no se abonen los créditos correspondientes. Por ejemplo, en el ejemplo de la siguiente foto vemos como en la campaña hay dos cartas. Una de Lucía Galindo, que ha sido correctamente abonada y otra de Pedro Ramírez que está pendiente de pago.
+
+En este caso, cuando se active la campaña la carta de Lucía Galindo se realizará y enviará mientras que la de Pedro Ramírez se mantendrá por hacer hasta que se paguen sus créditos correspondientes.
+
+![Due Credits Pn](/images/due-credits.png)

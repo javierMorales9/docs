@@ -1,4 +1,49 @@
 ---
 title: "Cartas individuales"
-description: "Description of your new file."
+description: "Las campañas o cartas individuales, a diferencia de las campañas puntuales y automáticas, permiten enviar una única carta con su configuración propia a un destinatario en particular. Son útiles cuando se quiere mandar un mensaje personalizado a cada destinatario. Por ejemplo, cuando se trata de hacer un contacto muy personalizado con grandes cuentas."
 ---
+
+import EditEnvelopeAndMessage from '/snippets/campaign-envelope-and-message.mdx';
+
+Se pueden ver las campañas individuales disponibles en la vista de Cartas individuales.
+
+![Single View Pn](/images/single-view.png)
+
+Existen dos formas de crear campañas individuales. O bien manualmente o bien a través automáticamente a través de la API o de alguna integración.
+
+## Creación manual de una campaña individual
+
+Para crear una campaña individual de forma manual basta con pinchar en el botón de Nueva Carta. Se presenta entonces el selector del [remitente](/customization/senders) de la carta y una serie de campos para introducir la dirección del destinatario de la campaña individual.
+
+![Single Address Empty Pn](/images/single-address-empty.png)
+
+![Single Address Full Pn](/images/single-address-full.png)
+
+Una vez se pincha en el botón Siguiente, se valida la dirección para comprobar que es correcta. Si lo es, se pasa al siguiente paso en el que se escoge el [diseño de carta y de sobre](/customization/designs).
+
+![Single Modal Designs Pn](/images/single-modal-designs.png)
+
+Tras esto, la nueva campaña se crea y es pasa al editor de campañas. En él, se podrá editar la dirección del destinatario previamente introducida.
+
+![Single Dest Pn](/images/single-dest.png)
+
+La edición del sobre y el mensaje funciona igual que en el resto de tipos de campañas. Se ofrece más información en los siguientes enlaces:
+
+<EditEnvelopeAndMessage />
+
+Una vez se considere que el sobre y el mensaje están correctamente configurados, será necesario activar la campaña para indicar al equipo de Manuscritten que puede iniciarse el trabajo. Es en este momento, en el de la activación, cuando se descuenta el coste de la campaña individual de los créditos disponibles de la cuenta.
+
+![Single Activated Pn](/images/single-activated.png)
+
+## Creación de una campaña individual a través de integración
+
+Al igual que las [campañas automáticas](/campaigns/automated), se pueden crear campañas individuales via API u otras integraciones. Consúltese la página siguiente.
+
+<Card title="Integraciones" icon="plug" href="/integrations/index">
+  Manda cartas a una campañas automática a través de una integración
+</Card>
+
+Las cartas creadas a través de integraciones con aplicaciones de terceros tienen dos diferencias con respecto a las creadas manualmente:
+
+1. Se cobran directamente. En caso de que no haya créditos suficientes, estas cartas se marcarán como a deber, igual que las automáticas.
+2. Se guardan directamente en estado Programada. Esto permite que el equipo de Manuscritten pueda poner a trabajar en ella en cuanto se reciba.

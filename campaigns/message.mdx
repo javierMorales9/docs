@@ -1,4 +1,94 @@
 ---
 title: "Edición del mensaje"
-description: "Description of your new file."
+description: "En la vista de edición de mensaje se configura los elementos que acabarán formando parte del contenido de la carta. A la derecha se muestra una previsualización realista de cual va a ser el resultado de la impresión."
 ---
+
+![Message First Pn](/images/message-first.png)
+
+El texto se puede configurar por medio de dos parámetros. La tipografía y los márgenes.
+
+![Message Config Pn](/images/message-config.png)
+
+Actualmente orfrecemos tres tipos distintos de tipografías. Se muestran a continuación
+
+<img
+  src="/images/font-21.png"
+  alt="Font 21 Pn"
+  title="Font 21 Pn"
+  className="mx-auto"
+  style={{ width:"79%" }}
+/>
+
+<img
+  src="/images/font-23.png"
+  alt="Font 23 Pn"
+  title="Font 23 Pn"
+  className="mx-auto"
+  style={{ width:"80%" }}
+/>
+
+<img
+  src="/images/font-26.png"
+  alt="Font 26 Pn"
+  title="Font 26 Pn"
+  className="mx-auto"
+  style={{ width:"80%" }}
+/>
+
+Los márgenes, por otra parte, indican que distancia debe tener el texto respecto a los bordes de la carta. Por ejemplo, a continuación se ofrece un ejemplo de carta con borde superior e izquierdo a cero.
+
+![No Margins Pn](/images/no-margins.png)
+
+En general, nuestras recomendaciones de márgenes son: 
+
+- **Cartas A4**: sup: 60, inf: 30, iz: 40, der; 40
+- **Cartas A5**: sup: 40, inf: 20, iz: 35, der; 35
+
+Como se puede ver, no hay forma de configurar el tamaño de la letra ni el interlineado. Estos parámetros se ajustan dinámicamente para garantizar que el robot vaya a ser capaz de escribirlos.
+
+## Variables
+
+Para personalizar el texto a cada destinatario se pueden usar variables. Por ejemplo, en el siguiente ejemplo se ha sustituido el nombre por la variable Nombre.
+
+![With Name Var Pn](/images/with-name-var.png)
+
+Existen dos tipos de variables: **Variables por defecto**: Estas variables son comunes a todas las cartas y son las que utilizaremos para crear la dirección del sobre. Ver [edición del sobre](/campaigns/envelope). Esta son: Nombre, Apellidos, Empresa, Ciudad, Provincia y País.
+
+**Variables personalizadas**: Son variables extra que permiten personalizar un párrafo de la carta. En las [campañas puntuales](/campaigns/one-time) estas se crean durante el proceso de subida del csv. En las [campañas automáticas](/campaigns/automated) se pueden crear en cualquier momento utilizando el cajetín situado debajo de las variables. Esas variable se podrán incluir posteriormente en las llamadas recibidas a través de la [API u otras integraciones](/integrations/index).
+
+Por ejemplo, en esta versión de la campaña hemos incluido una variable llamada Canal Previo que permite personalizar la carta dependiendo de donde se haya dado la comunicación previa.
+
+![Custom Var Pn](/images/custom-var.png)
+
+## Firmas
+
+A la carta se le puede añadir una firma ya subida a la plataforma. Si todavía no tienes ninguna consulta la [sección sobre firmas](/customization/signatures). Una vez se disponga de una, se podrá colocar colocar la firma donde se quiera utilizando el cajetín. Luego, en la sección de configuración habrá que seleccionar la firma que se quiera colocar
+
+<Columns cols={2}>
+  <Card title="Colocación en el texto" img="/images/signatur-locate-editor.png">
+    
+  </Card>
+  <Card title="Selección de firma en la configuración" img="/images/signature-select-config.png">
+    
+  </Card>
+</Columns>
+
+Con esto se colocará correctamente la firma
+
+![Preview With Signature Pn](/images/preview-with-signature.png)
+
+<Note>
+  Es posible que si la firma acaba de colocarse no aparezca inmediatamente. Esto se debe a que las firmas se tienen que digitalizar. Este proceso no siempre se puede hacer automáticamente, a veces requiere un trabajo manual por parte del equipo de Manuscritten.
+</Note>
+
+## QR
+
+También permitimos incluir un QR en la carta para pode dar un call to action claro al destinatario. Para incluirlo basta con añadir la url a la que se quiere redirigir en la sección de configuración y luego ajustar la posición y el tamaño en la previsualización.
+
+![Preview With Qr Pn](/images/preview-with-qr.png)
+
+Actualmente, el escaneo lleva a un servidor controlado por nosotros que luego redirigirá a la url de destino. A partir de estos datos somos capaces de comprobar que usuarios han escaneado el QR y cuales no.
+
+<Info>
+  Estamos trabajando en dos nuevas funcionalidad para poder incluir una **variable** (ver sección de variables) como **utm tag** y permitir por tanto identificar quien específicamente ha escaneado la carta en el destino. Si estás interesado, **contacta con nosotros**.
+</Info>
