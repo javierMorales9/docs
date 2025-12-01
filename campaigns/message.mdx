@@ -39,7 +39,7 @@ Los márgenes, por otra parte, indican que distancia debe tener el texto respect
 
 ![No Margins Pn](/images/no-margins.png)
 
-En general, nuestras recomendaciones de márgenes son: 
+En general, nuestras recomendaciones de márgenes son:
 
 - **Cartas A4**: sup: 60, inf: 30, iz: 40, der; 40
 - **Cartas A5**: sup: 40, inf: 20, iz: 35, der; 35
@@ -83,12 +83,20 @@ Con esto se colocará correctamente la firma
 
 ## QR
 
-También permitimos incluir un QR en la carta para pode dar un call to action claro al destinatario. Para incluirlo basta con añadir la url a la que se quiere redirigir en la sección de configuración y luego ajustar la posición y el tamaño en la previsualización.
+También permitimos incluir un QR en la carta para pode dar un call to action claro al destinatario. 
 
-![Preview With Qr Pn](/images/preview-with-qr.png)
+![Qr Not Included Pn](/images/qr-not-included.png)
 
-Actualmente, el escaneo lleva a un servidor controlado por nosotros que luego redirigirá a la url de destino. A partir de estos datos somos capaces de comprobar que usuarios han escaneado el QR y cuales no.
+Para incluirlo basta con añadir la url a la que se quiere redirigir en la sección de configuración luego ajustar la posición y el tamaño en la previsualización.
 
-<Info>
-  Estamos trabajando en dos nuevas funcionalidad para poder incluir una **variable** (ver sección de variables) como **utm tag** y permitir por tanto identificar quien específicamente ha escaneado la carta en el destino. Si estás interesado, **contacta con nosotros**.
-</Info>
+![Qr New Pn](/images/qr-new.png)
+
+Adicionalmente, para poder determinar en la página final a la que se redirige al usuario que destinatario específico ha escaneado el QR, se puede incluir un parámetro identificativo, que será único para cada carta. 
+
+En la siguiente imagen se puede ver como se ha escogido como nombre del parámetro `lead`. Como valor lo que debe es escogerse una de las variables configuradas previamente. En el ejemplo usamos una variable `crm_id`. 
+
+![Qr With Custom Param Pn](/images/qr_with_custom_param.png)
+
+Por ilustrarlo más aún, si un destinatario en particular tuviera un valor para la variable `crm_id` de 1234, la url final al que redirigirá el QR tendrá un parámetro en la url `lead=1234`. Y si otro usuario tuviera un valor para esa variable de 5678, la url de este otro destinatario sería igual al del anterior solo que tendría un valor de `lead=5678` en la url. Esto permite llevar a cabo un seguimiento de que destinatarios han leído la carta y escaneado el Qr y cuales no.
+
+Independientemente de que se incluya un parámetro personalizado, actualmente, el escaneo lleva a un servidor controlado por nosotros que luego redirigirá a la url de destino. A partir de estos datos somos capaces de comprobar que usuarios han escaneado el QR y cuales no.
